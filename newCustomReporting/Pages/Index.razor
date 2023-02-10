@@ -1,0 +1,42 @@
+﻿@*@page "/"
+@using Telerik.WebReportDesigner.Blazor
+
+<style>
+    #wrd1 {
+        position: relative;
+        width: 100%;
+        height: 880px;
+        padding-right: 80px;
+    }
+</style>
+
+<WebReportDesigner 
+    DesignerId="wrd1" 
+    ServiceUrl="https://localhost:7166/api/reportdesigner" 
+    Report="SampleReport.trdp"
+                   ToolboxArea="new ToolboxAreaOptions(){ Layout = ToolboxAreaLayout.List}"
+                   PropertiesArea="new PropertiesAreaOptions(){Layout = PropertiesAreaLayout.Categorized}" />*@
+
+@page "/"
+@using Telerik.WebReportDesigner.Blazor
+<style>
+    #wrd1 {
+        position: relative;
+        width: 1300px;
+        height: 880px;
+        padding-right: 50px;
+    }
+</style>
+@* Create the WebReportDesignerWidget *@
+<WebReportDesigner DesignerId="wrd1"
+                   ServiceUrl="https://localhost:7166/api/reportdesigner"
+                   Report="SampleReport.trdp"
+                   ReportViewerOptions="@(new ReportViewerOptions() {
+                templateUrl = "https://localhost:7166/api/reportdesigner/resources/templates/telerikReportViewerTemplate.html",
+                scaleMode = ScaleMode.Specific,
+                scale = 1.0,
+                pageMode = PageMode.ContinuousScroll,
+                viewMode = ViewMode.Interactive
+            })"
+                   ToolboxArea="new ToolboxAreaOptions() { Layout = ToolboxAreaLayout.List }"
+                   PropertiesArea="new PropertiesAreaOptions() { Layout = PropertiesAreaLayout.Categorized }" />
